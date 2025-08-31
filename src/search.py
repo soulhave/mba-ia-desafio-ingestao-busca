@@ -66,4 +66,5 @@ def search_prompt(question=None):
 
     llm_en = ChatOpenAI(model="gpt-5-mini", temperature=0)
     chain = add_context | template_prompt | llm_en | StrOutputParser()
-    return chain
+
+    return chain.invoke({"pergunta": question})
